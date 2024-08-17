@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Finanzas Personales</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold text-center mb-8">Gestión de Finanzas Personales</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Resumen de Finanzas -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4">Resumen de Finanzas</h2>
+                <p class="text-lg mb-2">Presupuesto Mensual: <span class="font-bold">{{.presupuesto}}</span></p>
+                <p class="text-lg mb-2">Ingresos: <span class="font-bold text-green-600">{{.ingresos}}</span></p>
+                <p class="text-lg mb-2">Gastos: <span class="font-bold text-red-600">{{.gastos}}</span></p>
+                <p class="text-lg mb-2">Presupuesto Restante: <span class="font-bold">{{.presupuestoRestante}}</span></p>
+            </div>
+
+            <!-- Formulario para Registrar Ingreso -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-4">Registrar Ingreso</h3>
+                <form action="/agregar_ingreso" method="POST">
+                    <div class="mb-4">
+                        <label for="monto" class="block text-gray-700">Monto:</label>
+                        <input type="text" name="monto" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                    <div class="mb-4">
+                        <label for="categoria" class="block text-gray-700">Categoría:</label>
+                        <input type="text" name="categoria" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg">Agregar Ingreso</button>
+                </form>
+            </div>
+
+            <!-- Formulario para Registrar Gasto -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-4">Registrar Gasto</h3>
+                <form action="/agregar_gasto" method="POST">
+                    <div class="mb-4">
+                        <label for="monto" class="block text-gray-700">Monto:</label>
+                        <input type="text" name="monto" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                    <div class="mb-4">
+                        <label for="categoria" class="block text-gray-700">Categoría:</label>
+                        <input type="text" name="categoria" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                    <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-lg">Agregar Gasto</button>
+                </form>
+            </div>
+
+            <!-- Formulario para Establecer Presupuesto -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-4">Establecer Presupuesto Mensual</h3>
+                <form action="/establecer_presupuesto" method="POST">
+                    <div class="mb-4">
+                        <label for="presupuesto" class="block text-gray-700">Presupuesto:</label>
+                        <input type="text" name="presupuesto" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg">Establecer Presupuesto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
